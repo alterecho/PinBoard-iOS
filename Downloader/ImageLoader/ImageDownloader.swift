@@ -8,11 +8,11 @@
 
 import UIKit
 class ImageDownloader : DownloaderProtocol, DownloadOperationProtocol {
-    let session: URLSession
+    let session: SessionProtocol
     var dataTask: URLSessionDataTask? = nil
     
-    init() {
-        session = URLSession.shared
+    init(session: SessionProtocol = URLSession.shared) {
+        self.session = session
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Error?) -> ()) {
