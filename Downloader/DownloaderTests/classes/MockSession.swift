@@ -46,7 +46,7 @@ class DataTask : URLSessionDataTask {
                     let data = try Data(contentsOf: url)
                     session?.completionHandler?(data, nil, nil)
                 } catch {
-                    XCTFail("unable to load local test image")
+                    XCTFail("unable to load test image")
                     session?.completionHandler?(nil, nil, nil)
                 }
             } else {
@@ -54,6 +54,20 @@ class DataTask : URLSessionDataTask {
                 session?.completionHandler?(nil, nil, nil)
             }
             break
+            
+        case TestURLS.jsonURL:
+            if let url = Bundle(for: DataTask.self).url(forResource: "test", withExtension: "json") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    session?.completionHandler?(data, nil, nil)
+                } catch {
+                    XCTFail("unable to load test json")
+                    session?.completionHandler?(nil, nil, nil)
+                }
+            } else {
+                XCTFail("unable to load test json")
+                session?.completionHandler?(nil, nil, nil)
+            }
             
         default:
             break

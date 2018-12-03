@@ -12,6 +12,8 @@
 		5F4F200A21B5171A002F2E67 /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F200921B5171A002F2E67 /* img.jpg */; };
 		5F4F200E21B51B05002F2E67 /* JSONDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */; };
 		5F4F201121B51D89002F2E67 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F200F21B51B59002F2E67 /* JSON.swift */; };
+		5F4F201321B57835002F2E67 /* JSONDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F201221B57835002F2E67 /* JSONDownloaderTests.swift */; };
+		5F4F201621B57970002F2E67 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F201521B57970002F2E67 /* test.json */; };
 		5F9FAEEA21B5091E003ED629 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */; };
 		5F9FAEEC21B50A5C003ED629 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEEB21B50A5C003ED629 /* MockSession.swift */; };
 		5FAC074821B3FD3F00976F85 /* DownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */; };
@@ -41,6 +43,8 @@
 		5F4F200921B5171A002F2E67 /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = "<group>"; };
 		5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloader.swift; sourceTree = "<group>"; };
 		5F4F200F21B51B59002F2E67 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		5F4F201221B57835002F2E67 /* JSONDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloaderTests.swift; sourceTree = "<group>"; };
+		5F4F201521B57970002F2E67 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		5F9FAEEB21B50A5C003ED629 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderProtocol.swift; sourceTree = "<group>"; };
@@ -100,9 +104,8 @@
 				5FC1075421B505FC0027B294 /* DownloadableProtocol.swift */,
 				5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */,
 				5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */,
-				5FAC074B21B40BB000976F85 /* ImageDownloader.swift */,
+				5F4F201421B578AD002F2E67 /* Downloaders */,
 				5F4F200F21B51B59002F2E67 /* JSON.swift */,
-				5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */,
 				5F4CC9E921B3CA65004F8840 /* Info.plist */,
 			);
 			path = ImageLoader;
@@ -121,8 +124,18 @@
 			isa = PBXGroup;
 			children = (
 				5F4F200921B5171A002F2E67 /* img.jpg */,
+				5F4F201521B57970002F2E67 /* test.json */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		5F4F201421B578AD002F2E67 /* Downloaders */ = {
+			isa = PBXGroup;
+			children = (
+				5FAC074B21B40BB000976F85 /* ImageDownloader.swift */,
+				5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */,
+			);
+			path = Downloaders;
 			sourceTree = "<group>";
 		};
 		5FAC075421B4A0DF00976F85 /* DownloaderTests */ = {
@@ -130,6 +143,7 @@
 			children = (
 				5F4F200421B512AB002F2E67 /* classes */,
 				5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */,
+				5F4F201221B57835002F2E67 /* JSONDownloaderTests.swift */,
 				5FAC075721B4A0DF00976F85 /* Info.plist */,
 			);
 			path = DownloaderTests;
@@ -235,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F200A21B5171A002F2E67 /* img.jpg in Resources */,
+				5F4F201621B57970002F2E67 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F4F201321B57835002F2E67 /* JSONDownloaderTests.swift in Sources */,
 				5F9FAEEC21B50A5C003ED629 /* MockSession.swift in Sources */,
 				5F4F200621B51319002F2E67 /* TestURLS.swift in Sources */,
 				5FAC075621B4A0DF00976F85 /* ImageDownloaderTests.swift in Sources */,

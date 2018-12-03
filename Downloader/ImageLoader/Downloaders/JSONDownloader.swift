@@ -17,7 +17,7 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Error?) -> ()) {
-        func callCompletion(json: JSON?, error: Error?) {
+        func callCompletion(json: Downloadable?, error: Error?) {
             DispatchQueue.main.async {
                 completionHandler(json, error)
             }
@@ -27,7 +27,11 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
         dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             if let data = data {
                 do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String : Any] {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    
+                    if let json = json as? JSON {
+                        callCompletion(json: json, error: nil)
+                    } else if let json = json as? JSONArray {
                         callCompletion(json: json, error: nil)
                     } else {
                         callCompletion(json: nil, error: error)
@@ -63,5 +67,9 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
 }
 
 extension Dictionary : Downloadable {
+    
+}
+
+extension Array : Downloadable {
     
 }

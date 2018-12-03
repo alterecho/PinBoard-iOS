@@ -11,4 +11,5 @@ import Foundation
 
 struct TestURLS {
     static let imageURL = URL(string: "http://www.testimage.com")!
+    static let jsonURL = URL(string: "http://www.testjson.com")!
 }
