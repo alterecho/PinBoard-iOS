@@ -5,7 +5,7 @@
       location = "group:PinBoard/../instructions.rtf">
    </FileRef>
    <FileRef
-      location = "group:ImageLoader/ImageLoader.xcodeproj">
+      location = "group:Downloader/Downloader.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:PinBoard/PinBoard.xcodeproj">
