@@ -6,8 +6,11 @@
 //  Copyright © 2018 echo. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import XCTest
+
 @testable import Downloader
+
 
 class MockSession : SessionProtocol {
     
@@ -38,6 +41,18 @@ class DataTask : URLSessionDataTask {
         switch session?.request?.url {
             
         case TestURLS.imageURL:
+            if let url = Bundle(for: DataTask.self).url(forResource: "img", withExtension: "jpg") {
+                do {
+                    let data = try Data(contentsOf: url)
+                    session?.completionHandler?(data, nil, nil)
+                } catch {
+                    XCTFail("unable to load local test image")
+                    session?.completionHandler?(nil, nil, nil)
+                }
+            } else {
+                XCTFail("unable to load local test image")
+                session?.completionHandler?(nil, nil, nil)
+            }
             break
             
         default:
