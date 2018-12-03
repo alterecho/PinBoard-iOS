@@ -12,7 +12,7 @@
 		5FAC074A21B40A9C00976F85 /* DownloadOperationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074921B40A9C00976F85 /* DownloadOperationProtocol.swift */; };
 		5FAC074C21B40BB000976F85 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074B21B40BB000976F85 /* ImageDownloader.swift */; };
 		5FAC074E21B40D2100976F85 /* SingletonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */; };
-		5FAC075621B4A0DF00976F85 /* DownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC075521B4A0DF00976F85 /* DownloaderTests.swift */; };
+		5FAC075621B4A0DF00976F85 /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */; };
 		5FAC075821B4A0DF00976F85 /* Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4CC9E521B3CA65004F8840 /* Downloader.framework */; };
 		5FC1075521B505FC0027B294 /* DownloadableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC1075421B505FC0027B294 /* DownloadableProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -36,7 +36,7 @@
 		5FAC074B21B40BB000976F85 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonProtocol.swift; sourceTree = "<group>"; };
 		5FAC075321B4A0DF00976F85 /* DownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FAC075521B4A0DF00976F85 /* DownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderTests.swift; sourceTree = "<group>"; };
+		5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
 		5FAC075721B4A0DF00976F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FC1075421B505FC0027B294 /* DownloadableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 		5FAC075421B4A0DF00976F85 /* DownloaderTests */ = {
 			isa = PBXGroup;
 			children = (
-				5FAC075521B4A0DF00976F85 /* DownloaderTests.swift */,
+				5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */,
 				5FAC075721B4A0DF00976F85 /* Info.plist */,
 			);
 			path = DownloaderTests;
@@ -222,7 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FAC075621B4A0DF00976F85 /* DownloaderTests.swift in Sources */,
+				5FAC075621B4A0DF00976F85 /* ImageDownloaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
