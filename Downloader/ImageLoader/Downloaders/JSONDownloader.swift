@@ -9,7 +9,6 @@
 import Foundation
 
 class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
-    
     enum Error: Swift.Error {
         case invalidJSONData
         case noData
@@ -18,7 +17,7 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     let session: SessionProtocol
     var dataTask: URLSessionDataTask? = nil
     
-    init(session: SessionProtocol = URLSession.shared) {
+    required init<CacheType: CacheProtocol>(session: SessionProtocol, cache: CacheType) {
         self.session = session
     }
     

@@ -16,7 +16,7 @@ class JSONDownloaderTests: XCTestCase {
     
     override func setUp() {
         session = MockSession()
-        downloader = JSONDownloader(session: session)
+        downloader = JSONDownloader(session: session, cache: DataCache.shared)
     }
 
     override func tearDown() {

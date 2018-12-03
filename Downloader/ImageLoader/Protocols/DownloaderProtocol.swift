@@ -9,6 +9,7 @@
 import Foundation
 
 protocol DownloaderProtocol: class {
+    init<CacheType: CacheProtocol>(session: SessionProtocol, cache: CacheType)
     func download(from url: URL, completionHandler: @escaping (Downloadable?, Error?) -> ())
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Error?) -> ())
 }

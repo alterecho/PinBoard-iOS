@@ -17,7 +17,7 @@ class DownloaderTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         session = MockSession()
-        downloader = ImageDownloader(session: session)
+        downloader = ImageDownloader(session: session, cache: DataCache.shared)
     }
 
     override func tearDown() {

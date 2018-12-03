@@ -16,15 +16,23 @@ class ImageDownloader : DownloaderProtocol, DownloadOperationProtocol {
     
     let session: SessionProtocol
     var dataTask: URLSessionDataTask? = nil
-    
-    init(session: SessionProtocol = URLSession.shared) {
+
+    required init<CacheType: CacheProtocol>(session: SessionProtocol, cache: CacheType) {
         self.session = session
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
+        
         func callCompletion(image: UIImage?, error: Swift.Error?) {
             DispatchQueue.main.async {
                 completionHandler(image, error)
+            }
+        }
+        
+        if let url = request.url, let data = DataCache.shared[url as NSURL] {
+            if let image = UIImage(data: data as Data) {
+                callCompletion(image: image, error: nil)
+                return
             }
         }
         

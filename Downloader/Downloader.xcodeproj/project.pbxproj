@@ -14,6 +14,8 @@
 		5F4F201121B51D89002F2E67 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F200F21B51B59002F2E67 /* JSON.swift */; };
 		5F4F201321B57835002F2E67 /* JSONDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F201221B57835002F2E67 /* JSONDownloaderTests.swift */; };
 		5F4F201621B57970002F2E67 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F4F201521B57970002F2E67 /* test.json */; };
+		5F4F201C21B58DC9002F2E67 /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F201A21B58B1B002F2E67 /* DataCache.swift */; };
+		5F4F201D21B58E51002F2E67 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F201821B58A08002F2E67 /* CacheProtocol.swift */; };
 		5F9FAEEA21B5091E003ED629 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */; };
 		5F9FAEEC21B50A5C003ED629 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEEB21B50A5C003ED629 /* MockSession.swift */; };
 		5FAC074821B3FD3F00976F85 /* DownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */; };
@@ -45,6 +47,8 @@
 		5F4F200F21B51B59002F2E67 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		5F4F201221B57835002F2E67 /* JSONDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDownloaderTests.swift; sourceTree = "<group>"; };
 		5F4F201521B57970002F2E67 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		5F4F201821B58A08002F2E67 /* CacheProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
+		5F4F201A21B58B1B002F2E67 /* DataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCache.swift; sourceTree = "<group>"; };
 		5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		5F9FAEEB21B50A5C003ED629 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderProtocol.swift; sourceTree = "<group>"; };
@@ -99,11 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5F4CC9E821B3CA65004F8840 /* ImageLoader.h */,
-				5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */,
-				5FAC074921B40A9C00976F85 /* DownloadOperationProtocol.swift */,
-				5FC1075421B505FC0027B294 /* DownloadableProtocol.swift */,
-				5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */,
-				5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */,
+				5F4F201721B589EA002F2E67 /* Protocols */,
 				5F4F201421B578AD002F2E67 /* Downloaders */,
 				5F4F200F21B51B59002F2E67 /* JSON.swift */,
 				5F4CC9E921B3CA65004F8840 /* Info.plist */,
@@ -136,6 +136,20 @@
 				5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */,
 			);
 			path = Downloaders;
+			sourceTree = "<group>";
+		};
+		5F4F201721B589EA002F2E67 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */,
+				5FAC074921B40A9C00976F85 /* DownloadOperationProtocol.swift */,
+				5FC1075421B505FC0027B294 /* DownloadableProtocol.swift */,
+				5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */,
+				5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */,
+				5F4F201821B58A08002F2E67 /* CacheProtocol.swift */,
+				5F4F201A21B58B1B002F2E67 /* DataCache.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5FAC075421B4A0DF00976F85 /* DownloaderTests */ = {
@@ -262,7 +276,9 @@
 			files = (
 				5F4F200E21B51B05002F2E67 /* JSONDownloader.swift in Sources */,
 				5F9FAEEA21B5091E003ED629 /* URLSessionProtocol.swift in Sources */,
+				5F4F201C21B58DC9002F2E67 /* DataCache.swift in Sources */,
 				5FAC074821B3FD3F00976F85 /* DownloaderProtocol.swift in Sources */,
+				5F4F201D21B58E51002F2E67 /* CacheProtocol.swift in Sources */,
 				5FAC074C21B40BB000976F85 /* ImageDownloader.swift in Sources */,
 				5FC1075521B505FC0027B294 /* DownloadableProtocol.swift in Sources */,
 				5FAC074A21B40A9C00976F85 /* DownloadOperationProtocol.swift in Sources */,
