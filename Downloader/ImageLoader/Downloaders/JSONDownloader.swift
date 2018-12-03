@@ -9,6 +9,12 @@
 import Foundation
 
 class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
+    
+    enum Error: Swift.Error {
+        case invalidJSONData
+        case noData
+    }
+    
     let session: SessionProtocol
     var dataTask: URLSessionDataTask? = nil
     
@@ -16,15 +22,15 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
         self.session = session
     }
     
-    func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Error?) -> ()) {
-        func callCompletion(json: Downloadable?, error: Error?) {
+    func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
+        func callCompletion(json: Downloadable?, error: Swift.Error?) {
             DispatchQueue.main.async {
                 completionHandler(json, error)
             }
         }
         
         dataTask?.cancel()
-        dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Swift.Error?) in
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -33,8 +39,10 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
                         callCompletion(json: json, error: nil)
                     } else if let json = json as? JSONArray {
                         callCompletion(json: json, error: nil)
-                    } else {
+                    } else if let error = error {
                         callCompletion(json: nil, error: error)
+                    } else {
+                        callCompletion(json: nil, error: Error.invalidJSONData)
                     }
                 } catch {
                     callCompletion(json: nil, error: error)
@@ -42,12 +50,12 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
             } else if let error = error {
                 callCompletion(json: nil, error: error)
             } else {
-                callCompletion(json: nil, error: nil)
+                callCompletion(json: nil, error: Error.noData)
             }
         }
     }
     
-    func download(from url: URL, completionHandler: @escaping (Downloadable?, Error?) -> ()) {
+    func download(from url: URL, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
         let request = URLRequest(url: url)
         self.download(for: request, completionHandler: completionHandler)
     }
