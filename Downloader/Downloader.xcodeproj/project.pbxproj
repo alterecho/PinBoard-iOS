@@ -20,11 +20,11 @@
 		5F4F202121B66C27002F2E67 /* DownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F202021B66C27002F2E67 /* DownloaderTests.swift */; };
 		5F4F202821B6718B002F2E67 /* DownloadableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F202621B67170002F2E67 /* DownloadableProtocol.swift */; };
 		5F4F202921B6719B002F2E67 /* DownloadOperationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F202221B66F58002F2E67 /* DownloadOperationProtocol.swift */; };
+		5F4F202C21B677DC002F2E67 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4F202A21B674D9002F2E67 /* DownloadManager.swift */; };
 		5F9FAEEA21B5091E003ED629 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */; };
 		5F9FAEEC21B50A5C003ED629 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9FAEEB21B50A5C003ED629 /* MockSession.swift */; };
 		5FAC074821B3FD3F00976F85 /* DownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */; };
 		5FAC074C21B40BB000976F85 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074B21B40BB000976F85 /* ImageDownloader.swift */; };
-		5FAC074E21B40D2100976F85 /* SingletonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */; };
 		5FAC075621B4A0DF00976F85 /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */; };
 		5FAC075821B4A0DF00976F85 /* Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4CC9E521B3CA65004F8840 /* Downloader.framework */; };
 /* End PBXBuildFile section */
@@ -55,11 +55,11 @@
 		5F4F202021B66C27002F2E67 /* DownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderTests.swift; sourceTree = "<group>"; };
 		5F4F202221B66F58002F2E67 /* DownloadOperationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadOperationProtocol.swift; sourceTree = "<group>"; };
 		5F4F202621B67170002F2E67 /* DownloadableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadableProtocol.swift; sourceTree = "<group>"; };
+		5F4F202A21B674D9002F2E67 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DownloadManager.swift; path = ImageLoader/DownloadManager.swift; sourceTree = SOURCE_ROOT; };
 		5F9FAEE921B5091E003ED629 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		5F9FAEEB21B50A5C003ED629 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderProtocol.swift; sourceTree = "<group>"; };
 		5FAC074B21B40BB000976F85 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonProtocol.swift; sourceTree = "<group>"; };
 		5FAC075321B4A0DF00976F85 /* DownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAC075521B4A0DF00976F85 /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
 		5FAC075721B4A0DF00976F85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,6 +139,7 @@
 			children = (
 				5FAC074B21B40BB000976F85 /* ImageDownloader.swift */,
 				5F4F200C21B51AD7002F2E67 /* JSONDownloader.swift */,
+				5F4F202A21B674D9002F2E67 /* DownloadManager.swift */,
 			);
 			path = Downloaders;
 			sourceTree = "<group>";
@@ -146,7 +147,6 @@
 		5F4F201721B589EA002F2E67 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				5FAC074D21B40D2100976F85 /* SingletonProtocol.swift */,
 				5F4F202621B67170002F2E67 /* DownloadableProtocol.swift */,
 				5FAC074721B3FD3F00976F85 /* DownloaderProtocol.swift */,
 				5F4F202221B66F58002F2E67 /* DownloadOperationProtocol.swift */,
@@ -281,13 +281,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4F200E21B51B05002F2E67 /* JSONDownloader.swift in Sources */,
+				5F4F202C21B677DC002F2E67 /* DownloadManager.swift in Sources */,
 				5F9FAEEA21B5091E003ED629 /* URLSessionProtocol.swift in Sources */,
 				5F4F201C21B58DC9002F2E67 /* DataCache.swift in Sources */,
 				5FAC074821B3FD3F00976F85 /* DownloaderProtocol.swift in Sources */,
 				5F4F201D21B58E51002F2E67 /* CacheProtocol.swift in Sources */,
 				5F4F202921B6719B002F2E67 /* DownloadOperationProtocol.swift in Sources */,
 				5FAC074C21B40BB000976F85 /* ImageDownloader.swift in Sources */,
-				5FAC074E21B40D2100976F85 /* SingletonProtocol.swift in Sources */,
 				5F4F202821B6718B002F2E67 /* DownloadableProtocol.swift in Sources */,
 				5F4F201121B51D89002F2E67 /* JSON.swift in Sources */,
 			);

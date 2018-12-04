@@ -20,7 +20,7 @@ class ImageDownloader: DownloaderProtocol, DownloadOperationProtocol {
     let cache: CacheType
     var dataTask: URLSessionDataTask? = nil
 
-    required init(session: SessionProtocol, cache: CacheType) {
+    required init(session: SessionProtocol = URLSession.shared, cache: CacheType = DataCache.shared) {
         self.session = session
         self.cache = cache
     }
