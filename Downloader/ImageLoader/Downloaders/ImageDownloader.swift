@@ -7,7 +7,9 @@
 //
 
 import UIKit
-class ImageDownloader : DownloaderProtocol, DownloadOperationProtocol {
+class ImageDownloader: DownloaderProtocol, DownloadOperationProtocol {
+    typealias CacheType = DataCache
+    
     
     enum Error: Swift.Error {
         case invalidImageData
@@ -15,10 +17,12 @@ class ImageDownloader : DownloaderProtocol, DownloadOperationProtocol {
     }
     
     let session: SessionProtocol
+    let cache: CacheType
     var dataTask: URLSessionDataTask? = nil
 
-    required init<CacheType: CacheProtocol>(session: SessionProtocol, cache: CacheType) {
+    required init(session: SessionProtocol, cache: CacheType) {
         self.session = session
+        self.cache = cache
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
@@ -29,7 +33,7 @@ class ImageDownloader : DownloaderProtocol, DownloadOperationProtocol {
             }
         }
         
-        if let url = request.url, let data = DataCache.shared[url as NSURL] {
+        if let url = request.url, let data = cache[url as NSURL] {
             if let image = UIImage(data: data as Data) {
                 callCompletion(image: image, error: nil)
                 return

@@ -12,12 +12,14 @@ import XCTest
 class DownloaderTests: XCTestCase {
     
     var session: MockSession!
+    var cache: MockCache!
     var downloader: ImageDownloader!
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         session = MockSession()
-        downloader = ImageDownloader(session: session, cache: DataCache.shared)
+        cache = MockCache()
+        downloader = ImageDownloader(session: session, cache: cache)
     }
 
     override func tearDown() {
@@ -43,6 +45,19 @@ class DownloaderTests: XCTestCase {
             
         }
         
+    }
+    
+    func testThatCacheIsUsed() {
+        let url = TestURLS.imageURL
+        downloader.download(from: url) { (downloadable, error) in
+        }
+        downloader.download(from: url) { (downloadable, error) in
+        }
+        
+        // expect 2 cache access counts
+        XCTAssert(cache.accessCount >= 2, "Cache not being accessed!")
+        
+        downloader.start()
     }
 
 }

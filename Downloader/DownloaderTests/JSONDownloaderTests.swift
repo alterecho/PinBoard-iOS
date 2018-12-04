@@ -13,10 +13,12 @@ class JSONDownloaderTests: XCTestCase {
 
     var session: MockSession!
     var downloader: JSONDownloader!
+    var cache: MockCache!
     
     override func setUp() {
         session = MockSession()
-        downloader = JSONDownloader(session: session, cache: DataCache.shared)
+        cache = MockCache()
+        downloader = JSONDownloader(session: session, cache: cache)
     }
 
     override func tearDown() {
@@ -42,6 +44,17 @@ class JSONDownloaderTests: XCTestCase {
         }
     }
     
-    
+    func testThatCacheIsUsed() {
+        let url = TestURLS.jsonURL
+        downloader.download(from: url) { (downloadable, error) in
+        }
+        downloader.download(from: url) { (downloadable, error) in
+        }
+        
+        // expect 2 cache access counts
+        XCTAssert(cache.accessCount >= 2, "Cache not being accessed!")
+        
+        downloader.start()
+    }
 
 }

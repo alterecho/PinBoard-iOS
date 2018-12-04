@@ -9,16 +9,20 @@
 import Foundation
 
 class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
+    typealias CacheType = DataCache
+    
     enum Error: Swift.Error {
         case invalidJSONData
         case noData
     }
     
-    let session: SessionProtocol
+    private let session: SessionProtocol
+    private let cache: CacheType
     var dataTask: URLSessionDataTask? = nil
     
-    required init<CacheType: CacheProtocol>(session: SessionProtocol, cache: CacheType) {
+    required init(session: SessionProtocol, cache: CacheType) {
         self.session = session
+        self.cache = cache
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
@@ -28,24 +32,30 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
             }
         }
         
+        func verifyIfJSON(data: Data) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                
+                if let json = json as? JSON {
+                    callCompletion(json: json, error: nil)
+                } else if let json = json as? JSONArray {
+                    callCompletion(json: json, error: nil)
+                } else {
+                    callCompletion(json: nil, error: Error.invalidJSONData)
+                }
+            } catch {
+                callCompletion(json: nil, error: error)
+            }
+        }
+        
+        if let url = request.url, let data = cache[url as NSURL] {
+            verifyIfJSON(data: data as Data)
+        }
+        
         dataTask?.cancel()
         dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Swift.Error?) in
             if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                    
-                    if let json = json as? JSON {
-                        callCompletion(json: json, error: nil)
-                    } else if let json = json as? JSONArray {
-                        callCompletion(json: json, error: nil)
-                    } else if let error = error {
-                        callCompletion(json: nil, error: error)
-                    } else {
-                        callCompletion(json: nil, error: Error.invalidJSONData)
-                    }
-                } catch {
-                    callCompletion(json: nil, error: error)
-                }
+                verifyIfJSON(data: data)
             } else if let error = error {
                 callCompletion(json: nil, error: error)
             } else {
