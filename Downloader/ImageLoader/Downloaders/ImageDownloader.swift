@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 class ImageDownloader: DownloaderProtocol, DownloadOperationProtocol {
     typealias CacheType = DataCache
     

@@ -9,7 +9,7 @@
 import Foundation
 
 /** for dependency injection */
-protocol SessionProtocol {
+public protocol SessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }

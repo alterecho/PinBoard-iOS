@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol JSON {}
+public protocol JSON {}
 
 typealias JSONDict = [String : Any]
 typealias JSONArray = [JSONDict]

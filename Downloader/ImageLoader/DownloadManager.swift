@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DownloadManager {
+public class DownloadManager {
     
     enum Error : Swift.Error {
         case unknown
@@ -16,7 +16,7 @@ class DownloadManager {
     
     private static var sharedInstance: DownloadManager!
     
-    static func shared() -> DownloadManager {
+    public static func shared() -> DownloadManager {
         if sharedInstance == nil {
             return DownloadManager()
         }
@@ -28,7 +28,7 @@ class DownloadManager {
     }
     
     @discardableResult
-    func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (UIImage?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
+    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (UIImage?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
         let downloader = ImageDownloader(session: session)
         downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {
@@ -39,7 +39,7 @@ class DownloadManager {
     }
     
     @discardableResult
-    func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (JSON?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
+    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (JSON?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
         let downloader = JSONDownloader(session: session)
         downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {

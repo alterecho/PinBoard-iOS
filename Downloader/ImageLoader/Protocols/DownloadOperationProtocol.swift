@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DownloadOperationProtocol {
+public protocol DownloadOperationProtocol {
     func start()
     func pause()
     func cancel()
