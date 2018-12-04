@@ -9,11 +9,7 @@
 import XCTest
 @testable import Downloader
 
-class DownloaderTests: XCTestCase {
-    
-    var session: MockSession!
-    var cache: MockCache!
-    var downloader: ImageDownloader!
+class ImageDownloaderTests: DownloaderTests<ImageDownloader> {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,7 +24,6 @@ class DownloaderTests: XCTestCase {
 
     func testThatImageDownloaderDownloadsImage() {
         let expectation = self.expectation(description: "download image")
-//        let url = URL(string:  "https://images.unsplash.com/profile-1464495186405-68089dcd96c3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=128&w=128&s=622a88097cf6661f84cd8942d851d9a2")!
         let url = TestURLS.imageURL
         downloader.download(from: url) { (downloadable, error) in
             if let _ = downloadable as? UIImage {
@@ -45,19 +40,6 @@ class DownloaderTests: XCTestCase {
             
         }
         
-    }
-    
-    func testThatCacheIsUsed() {
-        let url = TestURLS.imageURL
-        downloader.download(from: url) { (downloadable, error) in
-        }
-        downloader.download(from: url) { (downloadable, error) in
-        }
-        
-        // expect 2 cache access counts
-        XCTAssert(cache.accessCount >= 2, "Cache not being accessed!")
-        
-        downloader.start()
     }
 
 }
