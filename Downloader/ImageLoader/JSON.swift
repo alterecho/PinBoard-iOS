@@ -8,5 +8,10 @@
 
 import Foundation
 
-typealias JSON = [String : Any]
-typealias JSONArray = [JSON]
+protocol JSON {}
+
+typealias JSONDict = [String : Any]
+typealias JSONArray = [JSONDict]
+
+extension Dictionary : JSON {}
+extension Array : JSON {}

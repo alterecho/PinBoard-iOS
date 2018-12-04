@@ -23,35 +23,27 @@ class DownloadManager {
         return sharedInstance
     }
     
-    init() {
+    private init() {
         DownloadManager.sharedInstance = self
     }
     
-    func download(from url: URL, completionHandler: (UIImage?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
-        func callCompletionHandler(image: UIImage?, error: Swift.Error) {
-            
-        }
-        
-        completionHandler(UIImage(named: ""), nil)
-        let downloader = ImageDownloader()
-        downloader.download(for: URLRequest(url: url)) { (downloadable, error) in
+    @discardableResult
+    func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (UIImage?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
+        let downloader = ImageDownloader(session: session)
+        downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {
-                callCompletionHandler(image: downloadable as? UIImage, error: error ?? Error.unknown)
+                completionHandler(downloadable as? UIImage, error ?? Error.unknown)
             }
         }
         return downloader
     }
     
-    func download(url: URL, completionHandler: (JSON?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
-        func callCompletionHandler(image: JSON?, error: Swift.Error) {
-            
-        }
-        
-        completionHandler(JSON(), nil)
-        let downloader = JSONDownloader()
-        downloader.download(for: URLRequest(url: url)) { (downloadable, error) in
+    @discardableResult
+    func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (JSON?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
+        let downloader = JSONDownloader(session: session)
+        downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {
-                callCompletionHandler(image: downloadable as? JSON, error: error ?? Error.unknown)
+                completionHandler(downloadable as? JSON, error ?? Error.unknown)
             }
         }
         return downloader

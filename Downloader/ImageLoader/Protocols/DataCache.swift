@@ -9,6 +9,15 @@
 import Foundation
 
 class DataCache : CacheProtocol {
+    var limit: Int {
+        get {
+            return cache.countLimit
+        }
+        
+        set {
+            cache.countLimit = newValue
+        }
+    }
     
     static let shared = DataCache()
     

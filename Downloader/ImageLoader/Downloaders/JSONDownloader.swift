@@ -36,7 +36,7 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 
-                if let json = json as? JSON {
+                if let json = json as? JSONDict {
                     callCompletion(json: json, error: nil)
                 } else if let json = json as? JSONArray {
                     callCompletion(json: json, error: nil)
@@ -83,10 +83,6 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     }
 }
 
-extension Dictionary : Downloadable {
-    
-}
+extension Dictionary : Downloadable { }
 
-extension Array : Downloadable {
-    
-}
+extension Array : Downloadable { }

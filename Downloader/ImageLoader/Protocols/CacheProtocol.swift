@@ -12,5 +12,8 @@ protocol CacheProtocol {
     associatedtype Key
     associatedtype Object
     
+    /// max number of objects that the cache can hold
+    var limit: Int { get set }
+    
     subscript(key: Key) -> Object? { get set }
 }
