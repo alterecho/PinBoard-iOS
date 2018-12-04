@@ -10,8 +10,8 @@ import Foundation
 
 public protocol JSON {}
 
-typealias JSONDict = [String : Any]
-typealias JSONArray = [JSONDict]
+public typealias JSONDict = [String : Any]
+public typealias JSONArray = [JSONDict]
 
 extension Dictionary : JSON {}
 extension Array : JSON {}
