@@ -28,33 +28,33 @@ public class DownloadManager {
     }
     
     @discardableResult
-    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (UIImage?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
+    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (UIImage?, URLRequest?, Swift.Error?) -> ()) -> DownloadOperationProtocol {
         let downloader = ImageDownloader(session: session)
         downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {
-                completionHandler(downloadable as? UIImage, error ?? Error.unknown)
+                completionHandler(downloadable as? UIImage, request, error ?? Error.unknown)
             }
         }
         return downloader
     }
     
     @discardableResult
-    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (JSON?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
+    public func download(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (JSON?, URLRequest?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
         let downloader = JSONDownloader(session: session)
         downloader.download(for: request) { (downloadable, error) in
             DispatchQueue.main.async {
-                completionHandler(downloadable as? JSON, error ?? Error.unknown)
+                completionHandler(downloadable as? JSON, request, error ?? Error.unknown)
             }
         }
         return downloader
     }
     
     @discardableResult
-    public func download<T: Decodable>(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (_ type: [T], Swift.Error?) -> Void) -> DownloadOperationProtocol {
+    public func download<T: Decodable>(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (_ type: [T], URLRequest?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
 
         var decodableArr = [T]()
         var err: Swift.Error?
-        let downloader = DownloadManager.shared().download(with: request, session: session) { (json: JSON?, error) in
+        let downloader = DownloadManager.shared().download(with: request, session: session) { (json: JSON?, request, error) in
             err = error
             if let jsonArray = json as? JSONArray {
                 for json in jsonArray {
@@ -87,7 +87,7 @@ public class DownloadManager {
             }
             print(decodableArr)
             DispatchQueue.main.async {
-                completionHandler(decodableArr, err)
+                completionHandler(decodableArr, request, err)
             }
         }
         

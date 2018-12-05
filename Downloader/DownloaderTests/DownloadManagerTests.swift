@@ -24,7 +24,7 @@ class DownloadManagerTests: XCTestCase {
     func testImageDownload() {
         let expectation = self.expectation(description: "UIImage not downloaded")
         let request = URLRequest(url: TestURLS.imageURL)
-        DownloadManager.shared().download(with: request, session: session) { (image: UIImage?, error) -> () in
+        DownloadManager.shared().download(with: request, session: session) { (image: UIImage?, request, error) -> () in
             if let _ = image {
                 expectation.fulfill()
             } else {
@@ -42,7 +42,7 @@ class DownloadManagerTests: XCTestCase {
         let expectation = self.expectation(description: "JSON not downloaded")
         let request = URLRequest(url: TestURLS.jsonURL)
         
-        DownloadManager.shared().download(with: request, session: session) { (json: JSON?, error) in
+        DownloadManager.shared().download(with: request, session: session) { (json: JSON?, request, error) in
             if let _ = json {
                 expectation.fulfill()
             } else {
@@ -60,7 +60,7 @@ class DownloadManagerTests: XCTestCase {
         let expectation = self.expectation(description: "Decodable not downloaded")
         let request = URLRequest(url: TestURLS.decodableDictURL)
         
-        DownloadManager.shared().download(with: request, session: session) { (decodableArr: [DecodableType], error) in
+        DownloadManager.shared().download(with: request, session: session) { (decodableArr: [DecodableType], request, error) in
             if decodableArr.count > 0 {
                 let decodable = decodableArr.first
                 XCTAssertNotNil(decodable?.id, "id not parsed")
@@ -82,7 +82,7 @@ class DownloadManagerTests: XCTestCase {
         let expectation = self.expectation(description: "Decodable not downloaded")
         let request = URLRequest(url: TestURLS.decodableArrayURL)
         
-        DownloadManager.shared().download(with: request, session: session) { (decodableArr: [DecodableType], error) in
+        DownloadManager.shared().download(with: request, session: session) { (decodableArr: [DecodableType], request, error) in
             if decodableArr.count == 3 {
                 for decodable in decodableArr {
                     XCTAssertNotNil(decodable.id, "id not parsed")
