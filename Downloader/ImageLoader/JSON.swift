@@ -13,5 +13,5 @@ public protocol JSON {}
 public typealias JSONDict = [String : Any]
 public typealias JSONArray = [JSONDict]
 
-extension Dictionary : JSON {}
-extension Array : JSON {}
+extension Dictionary : JSON where Key == String, Value == Any {}
+extension Array : JSON where Element == JSONDict {}

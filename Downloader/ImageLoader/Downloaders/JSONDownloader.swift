@@ -83,6 +83,6 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     }
 }
 
-extension Dictionary : Downloadable { }
+extension Dictionary : Downloadable where Key == String, Value == Any { }
 
-extension Array : Downloadable { }
+extension Array : Downloadable where Element == JSONDict { }
