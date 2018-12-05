@@ -38,39 +38,39 @@ class DataTask : URLSessionDataTask {
     }
     
     override func resume() {
+        let fileURL: URL?
+        
         switch session?.request?.url {
-            
         case TestURLS.imageURL:
-            if let url = Bundle(for: DataTask.self).url(forResource: "img", withExtension: "jpg") {
-                do {
-                    let data = try Data(contentsOf: url)
-                    session?.completionHandler?(data, nil, nil)
-                } catch {
-                    XCTFail("unable to load test image")
-                    session?.completionHandler?(nil, nil, nil)
-                }
-            } else {
-                XCTFail("unable to load local test image")
-                session?.completionHandler?(nil, nil, nil)
-            }
+            fileURL = Bundle(for: DataTask.self).url(forResource: "img", withExtension: "jpg")
+             
             break
             
         case TestURLS.jsonURL:
-            if let url = Bundle(for: DataTask.self).url(forResource: "test", withExtension: "json") {
-                do {
-                    let data = try Data(contentsOf: url)
-                    session?.completionHandler?(data, nil, nil)
-                } catch {
-                    XCTFail("unable to load test json")
-                    session?.completionHandler?(nil, nil, nil)
-                }
-            } else {
-                XCTFail("unable to load test json")
-                session?.completionHandler?(nil, nil, nil)
-            }
+            fileURL = Bundle(for: DataTask.self).url(forResource: "test", withExtension: "json")
+            
+        case TestURLS.decodableDictURL:
+            fileURL = Bundle(for: DataTask.self).url(forResource: "decodableDict", withExtension: "json")
+            
+        case TestURLS.decodableArrayURL:
+            fileURL = Bundle(for: DataTask.self).url(forResource: "decodableArray", withExtension: "json")
             
         default:
+            fileURL = nil
             break
+        }
+        
+        if let url = fileURL {
+            do {
+                let data = try Data(contentsOf: url)
+                session?.completionHandler?(data, nil, nil)
+            } catch {
+                XCTFail("unable to load test file")
+                session?.completionHandler?(nil, nil, nil)
+            }
+        } else {
+            XCTFail("unable to load test file")
+            session?.completionHandler?(nil, nil, nil)
         }
     }
     

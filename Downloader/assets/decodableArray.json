@@ -1,0 +1,20 @@
+[
+    {
+        "id":3,
+        "title":"Nature",
+        "photo_count":300,
+        "link":"https://api.unsplash.com/categories/4/photos"
+    },
+    {
+        "id":2,
+        "title":"Nature",
+        "photo_count":123,
+        "link":"https://api.unsplash.com/categories/4/photos"
+    },
+    {
+        "id":1,
+        "title":"Nature",
+        "photo_count":794,
+        "link":"https://api.unsplash.com/categories/4/photos"
+    }
+]

@@ -10,6 +10,8 @@ import Foundation
 
 
 struct TestURLS {
-    static let imageURL = URL(string: "http://www.testimage.com")!
-    static let jsonURL = URL(string: "http://www.testjson.com")!
+    static let imageURL = URL(string: "http://www.testImage.com")!
+    static let jsonURL = URL(string: "http://www.testJson.com")!
+    static let decodableDictURL = URL(string: "http://www.testDecodableDict.com")!
+    static let decodableArrayURL = URL(string: "http://www.testDecodableArray.com")!
 }
