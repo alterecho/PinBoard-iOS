@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     private var collectionData = [ImageData]() {
         didSet {
             if collectionData.count > 0 {
-                collectionView.backgroundColor = UIColor.white
+                collectionView.backgroundColor = UIColor.black
             } else {
                 collectionView.backgroundColor = UIColor.clear
             }
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(fetchImageData), for: .valueChanged)
         
         let flowLayout = UICollectionViewFlowLayout()
@@ -43,11 +44,26 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.itemSize = CGSize(width: self.view.frame.size.width * 0.5, height: self.view.frame.size.width * 0.5)
+            let parentSize = self.view.frame
+            if parentSize.width > parentSize.height {
+                layout.itemSize = CGSize(width: self.view.frame.size.width / 3.0, height: self.view.frame.size.width / 3.0)
+            } else {
+                layout.itemSize = CGSize(width: self.view.frame.size.width * 0.5, height: self.view.frame.size.width * 0.5)
+            }
+            
             layout.minimumLineSpacing = 0.0
             layout.minimumInteritemSpacing = 0.0
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     @objc private func fetchImageData() {

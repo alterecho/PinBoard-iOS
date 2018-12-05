@@ -72,15 +72,20 @@ class ImageCell: UICollectionViewCell {
         }
         
         gradientLayer?.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        
 //        gradientLayer?.locations = [0.55]
         
 //        gradientLayer?.startPoint = CGPoint(x: gradientView.frame.size.width * 0.5, y: 0.0)
 //        gradientLayer?.endPoint = CGPoint(x: gradientView.frame.size.width * 0.5, y: 100.0)
-        gradientLayer?.frame = CGRect(x: 0.0, y: 0.0, width: imageView.frame.size.width, height: imageView.frame.size.height)
+        gradientLayer?.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
         
         if let layer = gradientLayer {
             gradientView.layer.addSublayer(layer)
+        }
+    }
+    
+    override var frame: CGRect {
+        didSet {
+            gradientLayer?.frame = CGRect(x: 0.0, y: 0.0, width: imageView.frame.size.width, height: imageView.frame.size.height)
         }
     }
 
