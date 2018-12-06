@@ -55,14 +55,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="rfa-GZ-FMu"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-ki-eWJ" customClass="LoadIndicator" customModule="PinBoard" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="o1e-ki-eWJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3eE-GI-vuX"/>
+                            <constraint firstItem="o1e-ki-eWJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6nu-EK-a30"/>
+                            <constraint firstItem="o1e-ki-eWJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="8Os-8K-ofa"/>
                             <constraint firstItem="lUK-S8-29s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="L4d-e9-KNN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lUK-S8-29s" secondAttribute="trailing" id="U5l-Nz-GDY"/>
                             <constraint firstItem="zS8-JY-zMt" firstAttribute="centerX" secondItem="pBE-CM-b4q" secondAttribute="centerX" id="WDP-Ss-kIg"/>
                             <constraint firstItem="pBE-CM-b4q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WJG-1E-C4u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lUK-S8-29s" secondAttribute="bottom" id="YvL-Xt-cN4"/>
+                            <constraint firstItem="o1e-ki-eWJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="a06-3u-f1S"/>
                             <constraint firstItem="lUK-S8-29s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="apA-Q4-lhf"/>
                             <constraint firstItem="zS8-JY-zMt" firstAttribute="top" secondItem="pBE-CM-b4q" secondAttribute="bottom" constant="7.5" id="boT-Hn-krg"/>
                             <constraint firstItem="pBE-CM-b4q" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qVG-vG-hwn"/>
@@ -71,6 +80,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="lUK-S8-29s" id="C1K-6j-mxE"/>
+                        <outlet property="loadIndicator" destination="o1e-ki-eWJ" id="bAY-Eh-fws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

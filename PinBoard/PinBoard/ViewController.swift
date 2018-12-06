@@ -11,6 +11,16 @@ import Downloader
 
 class ViewController: UIViewController {
     private static let CELL_ID = "cell"
+    
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var loadIndicator: LoadIndicator!
+    
+    private let refreshControl = UIRefreshControl(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
+    
+    private var fetchingImageData: Bool = false
+    
     private var collectionData = [ImageData]() {
         didSet {
             if collectionData.count > 0 {
@@ -20,23 +30,20 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
-    private let refreshControl = UIRefreshControl(frame: CGRect(x: 0.0, y: 0.0, width: 50.0, height: 50.0))
-    
-    private var fetchingImageData: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         refreshControl.tintColor = UIColor.white
-        refreshControl.addTarget(self, action: #selector(fetchImageData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(fetchNextImageData), for: .valueChanged)
         
         let layout = ImagePageLayout()
         collectionView.collectionViewLayout = layout
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: ViewController.CELL_ID)
         collectionView.refreshControl = refreshControl
+        
+        self.loadIndicator.isLoading = false
         
 //        self.fetchImageData()
     }
@@ -66,7 +73,7 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
-    @objc private func fetchImageData() {
+    @objc private func fetchNextImageData() {
         if fetchingImageData {
             return
         }
@@ -74,11 +81,12 @@ class ViewController: UIViewController {
         let request = URLRequest(url: URL(string: "http://pastebin.com/raw/wgkJgazE")!)
         
         DownloadManager.shared().download(with: request) { [weak self] (imageDataArray: [ImageData], request, error) in
-            self?.collectionData.removeAll()
+//            self?.collectionData.removeAll()
             self?.collectionData.append(contentsOf: imageDataArray)
             self?.refreshControl.endRefreshing()
             self?.collectionView.reloadData()
             self?.fetchingImageData = false
+            self?.loadIndicator.isLoading = false
             }.start()
     }
 
@@ -100,6 +108,17 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let imageData = collectionData[indexPath.row]
         cell.imageData = imageData
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView == collectionView else {
+            return
+        }
+        
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
+            self.loadIndicator.isLoading = true
+            self.fetchNextImageData()
+        }
     }
 }
 
