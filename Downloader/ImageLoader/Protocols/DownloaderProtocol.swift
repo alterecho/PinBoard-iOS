@@ -8,6 +8,7 @@
 
 import Foundation
 
+/** Defines the methods that a class capable of downloading anything is expected to have and implement */
 protocol DownloaderProtocol: class {
     associatedtype CacheType: CacheProtocol
     init(session: SessionProtocol, cache: CacheType)

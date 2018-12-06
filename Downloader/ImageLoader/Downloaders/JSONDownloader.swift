@@ -8,6 +8,7 @@
 
 import Foundation
 
+/** downloads any JSON or JSON array from the supplied URL */
 class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     typealias CacheType = DataCache
     
@@ -18,7 +19,7 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     
     private let session: SessionProtocol
     private let cache: CacheType
-    var dataTask: URLSessionDataTask? = nil
+    private var dataTask: URLSessionDataTask? = nil
     
     required init(session: SessionProtocol = URLSession.shared, cache: CacheType = DataCache.shared) {
         self.session = session

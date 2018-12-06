@@ -8,6 +8,7 @@
 
 import Foundation
 
+/** Operations a class wanting to download something is expected to have */
 public protocol DownloadOperationProtocol {
     func start()
     func pause()

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/** downloads any image from the supplied URL */
 class ImageDownloader: DownloaderProtocol, DownloadOperationProtocol {
     typealias CacheType = DataCache
     
@@ -17,9 +18,9 @@ class ImageDownloader: DownloaderProtocol, DownloadOperationProtocol {
         case noData
     }
     
-    let session: SessionProtocol
-    let cache: CacheType
-    var dataTask: URLSessionDataTask? = nil
+    private let session: SessionProtocol
+    private let cache: CacheType
+    private var dataTask: URLSessionDataTask? = nil
 
     required init(session: SessionProtocol = URLSession.shared, cache: CacheType = DataCache.shared) {
         self.session = session

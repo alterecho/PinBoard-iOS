@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Groups types that are returned from JSON URLs
 public protocol JSON {}
 
 public typealias JSONDict = [String : Any]

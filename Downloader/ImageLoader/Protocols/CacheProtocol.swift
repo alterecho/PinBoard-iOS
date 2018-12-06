@@ -8,6 +8,7 @@
 
 import Foundation
 
+/** Abstracts caching operations, so that we can implement a custom cache, unlike DataCache, which conforms to this protocol and uses NSCache under it's hood */
 protocol CacheProtocol {
     associatedtype Key
     associatedtype Object

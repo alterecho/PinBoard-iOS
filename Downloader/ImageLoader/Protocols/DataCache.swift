@@ -8,6 +8,7 @@
 
 import Foundation
 
+/** Makes use of Cocoa's NSCache */
 class DataCache : CacheProtocol {
     var limit: Int {
         get {

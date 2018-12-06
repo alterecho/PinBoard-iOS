@@ -5,6 +5,9 @@
       location = "group:PinBoard/../instructions.rtf">
    </FileRef>
    <FileRef
+      location = "group:/Users/echo/Projects/task_mindvalley/!!!!!NOTES!!!!!.rtf">
+   </FileRef>
+   <FileRef
       location = "group:Downloader/Downloader.xcodeproj">
    </FileRef>
    <FileRef

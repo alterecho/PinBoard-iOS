@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         refreshControl.tintColor = UIColor.white
         refreshControl.addTarget(self, action: #selector(fetchImageData), for: .valueChanged)
         
-        let flowLayout = UICollectionViewFlowLayout()
-        collectionView.collectionViewLayout = flowLayout
+        let layout = ImagePageLayout()
+        collectionView.collectionViewLayout = layout
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: ViewController.CELL_ID)
         collectionView.refreshControl = refreshControl
         

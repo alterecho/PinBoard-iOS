@@ -8,6 +8,10 @@
 
 import UIKit
 
+/** Singleton class to provide convenience methods to download any Downloadable types
+    To download any supported types, call:
+    `DownloadManager.shared().download(with: request) { [weak self] (imageDataArray: [** supported download type here **], request, error) in {}`
+ */
 public class DownloadManager {
     
     enum Error : Swift.Error {
@@ -49,6 +53,7 @@ public class DownloadManager {
         return downloader
     }
     
+    /** Downloads and returns any Class that conform to Decodable */
     @discardableResult
     public func download<T: Decodable>(with request: URLRequest, session: SessionProtocol = URLSession.shared, completionHandler: @escaping (_ type: [T], URLRequest?, Swift.Error?) -> Void) -> DownloadOperationProtocol {
 

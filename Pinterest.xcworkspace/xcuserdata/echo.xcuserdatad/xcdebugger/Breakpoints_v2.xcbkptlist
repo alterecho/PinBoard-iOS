@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PinBoard/PinBoard/Views/ImageCell.swift"
-            timestampString = "565718436.464846"
+            filePath = "PinBoard/PinBoard/ImagePageLayout.swift"
+            timestampString = "565804224.446308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "frame"
-            landmarkType = "24">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "initialLayoutAttributesForAppearingItem(at:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PinBoard/PinBoard/Views/ImageCell.swift"
-            timestampString = "565718436.465217"
+            filePath = "PinBoard/PinBoard/ImagePageLayout.swift"
+            timestampString = "565804224.4464149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "layoutSubviews()"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "shouldInvalidateLayout(forBoundsChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
