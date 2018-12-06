@@ -9,6 +9,7 @@
 import Foundation
 
 
+/** identifiers to load local data. for testing */
 struct TestURLS {
     static let imageURL = URL(string: "http://www.testImage.com")!
     static let jsonURL = URL(string: "http://www.testJson.com")!

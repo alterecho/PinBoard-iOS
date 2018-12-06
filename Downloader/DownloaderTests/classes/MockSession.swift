@@ -11,7 +11,7 @@ import XCTest
 
 @testable import Downloader
 
-
+/** returns a custom URLDataTask object that loads and returns locally stored data. To do that, the URL requested to this session must be the ones from the TestURLs class */
 class MockSession : SessionProtocol {
     
     fileprivate var completionHandler: ((Data?, URLResponse?, Error?) -> Void)?
