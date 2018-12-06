@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         refreshControl.tintColor = UIColor.white
-        refreshControl.addTarget(self, action: #selector(fetchNextImageData), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshControlAction), for: .valueChanged)
         
         let layout = ImagePageLayout()
         collectionView.collectionViewLayout = layout
@@ -44,8 +44,6 @@ class ViewController: UIViewController {
         collectionView.refreshControl = refreshControl
         
         self.loadIndicator.isLoading = false
-        
-//        self.fetchImageData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +71,12 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
-    @objc private func fetchNextImageData() {
+    /** used by refresh control */
+    @objc func refreshControlAction() {
+        fetchImageData(andAppend: false)
+    }
+    
+    @objc private func fetchImageData(andAppend append: Bool) {
         if fetchingImageData {
             return
         }
@@ -81,7 +84,9 @@ class ViewController: UIViewController {
         let request = URLRequest(url: URL(string: "http://pastebin.com/raw/wgkJgazE")!)
         
         DownloadManager.shared().download(with: request) { [weak self] (imageDataArray: [ImageData], request, error) in
-//            self?.collectionData.removeAll()
+            if !append {
+                self?.collectionData.removeAll()
+            }
             self?.collectionData.append(contentsOf: imageDataArray)
             self?.refreshControl.endRefreshing()
             self?.collectionView.reloadData()
@@ -89,8 +94,6 @@ class ViewController: UIViewController {
             self?.loadIndicator.isLoading = false
             }.start()
     }
-
-
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -117,7 +120,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         
         if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
             self.loadIndicator.isLoading = true
-            self.fetchNextImageData()
+            self.fetchImageData(andAppend: true)
         }
     }
 }

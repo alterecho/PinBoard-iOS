@@ -11,7 +11,6 @@ import UIKit
 class LoadIndicator : UIActivityIndicatorView {
     var isLoading: Bool = false {
         didSet {
-            //            loadIndicator.isHidden = !isLoading
             let startBGColor: UIColor
             let endBGColor: UIColor
             let completionBlock: () -> ()
