@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2F51D221BAD55200C8ECD8 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2F51D121BAD55200C8ECD8 /* ParserTests.swift */; };
+		5F2F51E021BAD6FC00C8ECD8 /* PinBoardNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2F51DF21BAD6FC00C8ECD8 /* PinBoardNetworkTests.swift */; };
+		5F2F51E821BADE9400C8ECD8 /* ImageDataArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F2F51E721BADE9400C8ECD8 /* ImageDataArray.json */; };
+		5F2F51EA21BAE08000C8ECD8 /* ImageData.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F2F51E921BAE08000C8ECD8 /* ImageData.json */; };
 		5F4CC9FD21B3CAB7004F8840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CC9FC21B3CAB7004F8840 /* AppDelegate.swift */; };
 		5F4CC9FF21B3CAB7004F8840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CC9FE21B3CAB7004F8840 /* ViewController.swift */; };
 		5F4CCA0221B3CAB7004F8840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4CCA0021B3CAB7004F8840 /* Main.storyboard */; };
@@ -26,6 +30,23 @@
 		5F56550B21B7402A0029E877 /* Downloader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5F56550921B7402A0029E877 /* Downloader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5F2F51D421BAD55200C8ECD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F4CC9F121B3CAB7004F8840 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F4CC9F821B3CAB7004F8840;
+			remoteInfo = PinBoard;
+		};
+		5F2F51E221BAD6FC00C8ECD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F4CC9F121B3CAB7004F8840 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F4CC9F821B3CAB7004F8840;
+			remoteInfo = PinBoard;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		5F56550C21B7402A0029E877 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -41,6 +62,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5F2F51CF21BAD55200C8ECD8 /* PinBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2F51D121BAD55200C8ECD8 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		5F2F51D321BAD55200C8ECD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F2F51DD21BAD6FC00C8ECD8 /* PinBoardNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinBoardNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2F51DF21BAD6FC00C8ECD8 /* PinBoardNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinBoardNetworkTests.swift; sourceTree = "<group>"; };
+		5F2F51E121BAD6FC00C8ECD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F2F51E721BADE9400C8ECD8 /* ImageDataArray.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ImageDataArray.json; sourceTree = "<group>"; };
+		5F2F51E921BAE08000C8ECD8 /* ImageData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ImageData.json; sourceTree = "<group>"; };
 		5F4CC9F921B3CAB7004F8840 /* PinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4CC9FC21B3CAB7004F8840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4CC9FE21B3CAB7004F8840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +92,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5F2F51CC21BAD55200C8ECD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F2F51DA21BAD6FC00C8ECD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F4CC9F621B3CAB7004F8840 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -74,11 +117,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F2F51D021BAD55200C8ECD8 /* PinBoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F2F51D121BAD55200C8ECD8 /* ParserTests.swift */,
+				5F2F51D321BAD55200C8ECD8 /* Info.plist */,
+				5F2F51E721BADE9400C8ECD8 /* ImageDataArray.json */,
+				5F2F51E921BAE08000C8ECD8 /* ImageData.json */,
+			);
+			path = PinBoardTests;
+			sourceTree = "<group>";
+		};
+		5F2F51DE21BAD6FC00C8ECD8 /* PinBoardNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F2F51DF21BAD6FC00C8ECD8 /* PinBoardNetworkTests.swift */,
+				5F2F51E121BAD6FC00C8ECD8 /* Info.plist */,
+			);
+			path = PinBoardNetworkTests;
+			sourceTree = "<group>";
+		};
 		5F4CC9F021B3CAB7004F8840 = {
 			isa = PBXGroup;
 			children = (
 				5F56550921B7402A0029E877 /* Downloader.framework */,
 				5F4CC9FB21B3CAB7004F8840 /* PinBoard */,
+				5F2F51D021BAD55200C8ECD8 /* PinBoardTests */,
+				5F2F51DE21BAD6FC00C8ECD8 /* PinBoardNetworkTests */,
 				5F4CC9FA21B3CAB7004F8840 /* Products */,
 				5F5ED4C221B3D57300BD7184 /* instructions.rtf */,
 			);
@@ -88,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				5F4CC9F921B3CAB7004F8840 /* PinBoard.app */,
+				5F2F51CF21BAD55200C8ECD8 /* PinBoardTests.xctest */,
+				5F2F51DD21BAD6FC00C8ECD8 /* PinBoardNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +201,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5F2F51CE21BAD55200C8ECD8 /* PinBoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F2F51D821BAD55200C8ECD8 /* Build configuration list for PBXNativeTarget "PinBoardTests" */;
+			buildPhases = (
+				5F2F51CB21BAD55200C8ECD8 /* Sources */,
+				5F2F51CC21BAD55200C8ECD8 /* Frameworks */,
+				5F2F51CD21BAD55200C8ECD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F2F51D521BAD55200C8ECD8 /* PBXTargetDependency */,
+			);
+			name = PinBoardTests;
+			productName = PinBoardTests;
+			productReference = 5F2F51CF21BAD55200C8ECD8 /* PinBoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5F2F51DC21BAD6FC00C8ECD8 /* PinBoardNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F2F51E421BAD6FC00C8ECD8 /* Build configuration list for PBXNativeTarget "PinBoardNetworkTests" */;
+			buildPhases = (
+				5F2F51D921BAD6FC00C8ECD8 /* Sources */,
+				5F2F51DA21BAD6FC00C8ECD8 /* Frameworks */,
+				5F2F51DB21BAD6FC00C8ECD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F2F51E321BAD6FC00C8ECD8 /* PBXTargetDependency */,
+			);
+			name = PinBoardNetworkTests;
+			productName = PinBoardNetworkTests;
+			productReference = 5F2F51DD21BAD6FC00C8ECD8 /* PinBoardNetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5F4CC9F821B3CAB7004F8840 /* PinBoard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F4CCA0B21B3CAB9004F8840 /* Build configuration list for PBXNativeTarget "PinBoard" */;
@@ -162,6 +265,14 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = echo;
 				TargetAttributes = {
+					5F2F51CE21BAD55200C8ECD8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5F4CC9F821B3CAB7004F8840;
+					};
+					5F2F51DC21BAD6FC00C8ECD8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 5F4CC9F821B3CAB7004F8840;
+					};
 					5F4CC9F821B3CAB7004F8840 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -181,11 +292,29 @@
 			projectRoot = "";
 			targets = (
 				5F4CC9F821B3CAB7004F8840 /* PinBoard */,
+				5F2F51CE21BAD55200C8ECD8 /* PinBoardTests */,
+				5F2F51DC21BAD6FC00C8ECD8 /* PinBoardNetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5F2F51CD21BAD55200C8ECD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F2F51EA21BAE08000C8ECD8 /* ImageData.json in Resources */,
+				5F2F51E821BADE9400C8ECD8 /* ImageDataArray.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F2F51DB21BAD6FC00C8ECD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F4CC9F721B3CAB7004F8840 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +329,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5F2F51CB21BAD55200C8ECD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F2F51D221BAD55200C8ECD8 /* ParserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F2F51D921BAD6FC00C8ECD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F2F51E021BAD6FC00C8ECD8 /* PinBoardNetworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5F4CC9F521B3CAB7004F8840 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,6 +364,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F2F51D521BAD55200C8ECD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F4CC9F821B3CAB7004F8840 /* PinBoard */;
+			targetProxy = 5F2F51D421BAD55200C8ECD8 /* PBXContainerItemProxy */;
+		};
+		5F2F51E321BAD6FC00C8ECD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F4CC9F821B3CAB7004F8840 /* PinBoard */;
+			targetProxy = 5F2F51E221BAD6FC00C8ECD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5F4CCA0021B3CAB7004F8840 /* Main.storyboard */ = {
@@ -240,6 +398,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5F2F51D621BAD55200C8ECD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PinBoardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = echo.PinBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinBoard.app/PinBoard";
+			};
+			name = Debug;
+		};
+		5F2F51D721BAD55200C8ECD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PinBoardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = echo.PinBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinBoard.app/PinBoard";
+			};
+			name = Release;
+		};
+		5F2F51E521BAD6FC00C8ECD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PinBoardNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = echo.PinBoardNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinBoard.app/PinBoard";
+			};
+			name = Debug;
+		};
+		5F2F51E621BAD6FC00C8ECD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PinBoardNetworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = echo.PinBoardNetworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PinBoard.app/PinBoard";
+			};
+			name = Release;
+		};
 		5F4CCA0921B3CAB9004F8840 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -395,6 +629,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5F2F51D821BAD55200C8ECD8 /* Build configuration list for PBXNativeTarget "PinBoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F2F51D621BAD55200C8ECD8 /* Debug */,
+				5F2F51D721BAD55200C8ECD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F2F51E421BAD6FC00C8ECD8 /* Build configuration list for PBXNativeTarget "PinBoardNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F2F51E521BAD6FC00C8ECD8 /* Debug */,
+				5F2F51E621BAD6FC00C8ECD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5F4CC9F421B3CAB7004F8840 /* Build configuration list for PBXProject "PinBoard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

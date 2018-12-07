@@ -27,36 +27,45 @@ class JSONDownloader : DownloaderProtocol, DownloadOperationProtocol {
     }
     
     func download(for request: URLRequest, completionHandler: @escaping (Downloadable?, Swift.Error?) -> ()) {
+        /// calls the completionHandler on the main thread
         func callCompletion(json: Downloadable?, error: Swift.Error?) {
             DispatchQueue.main.async {
                 completionHandler(json, error)
             }
         }
         
-        func verifyIfJSON(data: Data) {
+        /// returns the parameters that can be used to call the completionHandler method
+        func completionHandlerParametersForData(data: Data) -> (json: Downloadable?, error: Swift.Error?) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                 
                 if let json = json as? JSONDict {
-                    callCompletion(json: json, error: nil)
+                    return (json, nil)
                 } else if let json = json as? JSONArray {
-                    callCompletion(json: json, error: nil)
+                    return (json , nil)
                 } else {
-                    callCompletion(json: nil, error: Error.invalidJSONData)
+                    return (nil , Error.invalidJSONData)
                 }
             } catch {
-                callCompletion(json: nil, error: error)
+                return (nil, error)
             }
         }
         
+        // check cache
         if let url = request.url, let data = cache[url as NSURL] {
-            verifyIfJSON(data: data as Data)
+            let params = completionHandlerParametersForData(data: data as Data)
+            if let json = params.json {
+                callCompletion(json: json, error: params.error)
+                return
+            }
         }
         
         dataTask?.cancel()
         dataTask = session.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Swift.Error?) in
+            
             if let data = data {
-                verifyIfJSON(data: data)
+                let params = completionHandlerParametersForData(data: data as Data)
+                callCompletion(json: params.json, error: params.error)
             } else if let error = error {
                 callCompletion(json: nil, error: error)
             } else {

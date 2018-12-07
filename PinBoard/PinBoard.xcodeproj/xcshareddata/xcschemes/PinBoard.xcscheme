@@ -20,6 +20,20 @@
                ReferencedContainer = "container:PinBoard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5F2F51DC21BAD6FC00C8ECD8"
+               BuildableName = "PinBoardNetworkTests.xctest"
+               BlueprintName = "PinBoardNetworkTests"
+               ReferencedContainer = "container:PinBoard.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,6 +42,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5F2F51CE21BAD55200C8ECD8"
+               BuildableName = "PinBoardTests.xctest"
+               BlueprintName = "PinBoardTests"
+               ReferencedContainer = "container:PinBoard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
